@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia del Real Madrid C.F. - Proyecto Escolar</title>
+    <!-- FontAwesome para íconos generales -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #030712; color: #f1f5f9; line-height: 1.6; }
+
+        /* Header / Navegación */
+        header { position: sticky; top: 0; z-index: 100; background-color: #0c2340; border-bottom: 2px solid #D4AF37; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; }
+        .brand { display: flex; align-items: center; gap: 12px; }
+        .logo-crown { width: 42px; height: 42px; border-radius: 50%; background: #030712; border: 2px solid #D4AF37; display: flex; align-items: center; justify-content: center; font-size: 20px; }
+        nav { display: flex; gap: 15px; align-items: center; }
+        nav a { color: #fff; text-decoration: none; font-weight: bold; font-size: 0.9rem; transition: color 0.2s; }
+        nav a:hover { color: #D4AF37; }
+        .btn-nav { background: #D4AF37; color: #0c2340; padding: 8px 18px; border-radius: 20px; text-decoration: none; font-weight: bold; }
+
+        /* Hero */
+        .hero { background: linear-gradient(180deg, #0c2340 0%, #030712 100%); padding: 60px 20px; text-align: center; }
+        .hero h1 { font-size: 2.5rem; color: #fff; margin-bottom: 10px; }
+        .hero h1 span { color: #D4AF37; }
+
+        /* Ficha Estudiante */
+        .card-student { background: #0c2340; border: 2px solid #D4AF37; border-radius: 12px; padding: 24px; max-width: 500px; margin: 25px auto 0 auto; text-align: left; box-shadow: 0 8px 20px rgba(0,0,0,0.4); }
+        .card-student h3 { color: #D4AF37; margin-bottom: 12px; border-bottom: 1px solid #1e293b; padding-bottom: 8px; font-size: 1.1rem; }
+        .card-student p { margin: 8px 0; font-size: 0.95rem; }
+
+        /* Secciones principales */
+        section { padding: 50px 20px; max-width: 1000px; margin: 0 auto; border-bottom: 1px solid #1e293b; }
+        h2.title { text-align: center; color: #D4AF37; font-size: 2rem; margin-bottom: 30px; }
+
+        /* Grid de Tarjetas */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+        .box { background: #0f172a; border: 1px solid #1e293b; border-radius: 12px; overflow: hidden; text-align: center; transition: transform 0.2s, border-color 0.2s; }
+        .box:hover { transform: translateY(-5px); border-color: #D4AF37; }
+
+        /* Contenedor de imágenes uniformes */
+        .img-container { width: 100%; height: 180px; background-color: #1e293b; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+        .img-container img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+        .box:hover .img-container img { transform: scale(1.05); }
+
+        .box-content { padding: 20px; }
+        .box h3 { color: #D4AF37; font-size: 1.8rem; font-weight: 800; margin-bottom: 5px; }
+        .box h4 { color: #fff; font-size: 1.1rem; margin-bottom: 8px; }
+        .box p { font-size: 0.85rem; color: #94a3b8; }
+
+        /* Quiz Interactivo */
+        .quiz-box { background: #0f172a; border: 2px solid #D4AF37; border-radius: 12px; padding: 30px; max-width: 650px; margin: 0 auto; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
+        .quiz-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #334155; padding-bottom: 10px; margin-bottom: 20px; font-size: 0.85rem; color: #D4AF37; font-weight: bold; }
+        .quiz-opt { width: 100%; text-align: left; padding: 14px 18px; margin: 8px 0; background: #030712; border: 1px solid #334155; color: #fff; border-radius: 8px; cursor: pointer; font-size: 0.95rem; transition: background 0.2s, border-color 0.2s; }
+        .quiz-opt:hover { background: #1e293b; border-color: #D4AF37; }
+        
+        .btn-next { background: #D4AF37; color: #0c2340; border: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; margin-top: 15px; display: none; }
+        .btn-next:hover { background: #f4d068; }
+
+        footer { text-align: center; padding: 30px; color: #64748b; font-size: 0.85rem; background: #030712; }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="brand">
+            <div class="logo-crown">👑</div>
+            <div>
+                <strong style="color:#fff; display:block;">REAL MADRID C.F.</strong>
+                <span style="font-size:0.75rem; color:#94a3b8;">Proyecto OVP - 10° EGB</span>
+            </div>
+        </div>
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#historia">Historia</a>
+            <a href="#trofeos">Trofeos</a>
+            <a href="#leyendas">Leyendas</a>
+            <a href="#quiz" class="btn-nav">Quiz Escolar</a>
+        </nav>
+    </header>
+
+    <!-- Hero y Ficha -->
+    <div id="inicio" class="hero">
+        <h1>Historia del <span>Real Madrid C.F.</span></h1>
+        <p style="color: #cbd5e1;">Proyecto Educativo e Investigación Escolar</p>
+
+        <div class="card-student">
+            <h3>📋 Ficha del Estudiante</h3>
+            <p><strong>Estudiante:</strong> Aidan Buenaño</p>
+            <p><strong>Curso:</strong> Décimo (10° EGB)</p>
+            <p><strong>Materia:</strong> OVP</p>
+            <p><strong>Profesor:</strong> Andrés Galarza</p>
+        </div>
+    </div>
+
+    <!-- Historia -->
+    <section id="historia">
+        <h2 class="title">Resumen Histórico</h2>
+        <div style="background: #0f172a; padding: 25px; border-radius: 12px; border: 1px solid #1e293b;">
+            <p style="margin-bottom: 12px;">Fundado el <strong>6 de marzo de 1902</strong>, el Real Madrid C.F. se consolidó como una de las instituciones deportivas más influyentes del planeta.</p>
+            <p style="margin-bottom: 12px;">En 1920, recibió la denominación de "Real" por parte del Rey Alfonso XIII. Durante la década de 1950, de la mano de Alfredo Di Stéfano, marcó una era dorada al conquistar las primeras 5 Copas de Europa consecutivas.</p>
+            <p>Actualmente es el club más laureado a nivel internacional, destacando sus <strong>15 UEFA Champions League</strong> y la modernización tecnológica del Estadio Santiago Bernabéu.</p>
+        </div>
+    </section>
+
+    <!-- Trofeos -->
+    <section id="trofeos">
+        <h2 class="title">Palmarés Oficial</h2>
+        <div class="grid">
+            <!-- Champions League -->
+            <div class="box">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?q=80&w=600&auto=format&fit=crop" alt="Champions League">
+                </div>
+                <div class="box-content">
+                    <h3>15</h3>
+                    <h4>Champions League</h4>
+                    <p>Máximo dominador histórico del torneo continental.</p>
+                </div>
+            </div>
+
+            <!-- Ligas Españolas -->
+            <div class="box">
+                <div class="img-container" style="background: linear-gradient(135deg, #0c2340 0%, #152338 100%);">
+                    <svg viewBox="0 0 24 24" width="80" height="80" fill="#D4AF37">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                </div>
+                <div class="box-content">
+                    <h3>36</h3>
+                    <h4>Ligas Españolas</h4>
+                    <p>Líder histórico del campeonato doméstico de liga.</p>
+                </div>
+            </div>
+
+            <!-- Copas del Rey -->
+            <div class="box">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=600&auto=format&fit=crop" alt="Copa del Rey">
+                </div>
+                <div class="box-content">
+                    <h3>20</h3>
+                    <h4>Copas del Rey</h4>
+                    <p>Títulos ganados en la competición nacional de copa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leyendas -->
+    <section id="leyendas">
+        <h2 class="title">Grandes Leyendas</h2>
+        <div class="grid">
+            <div class="box">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1518091043644-c1d4457512c6?q=80&w=600&auto=format&fit=crop" alt="Alfredo Di Stéfano">
+                </div>
+                <div class="box-content">
+                    <h4 style="color: #D4AF37; font-size: 1.2rem;">Alfredo Di Stéfano</h4>
+                    <p style="color: #cbd5e1; font-weight: bold; margin-bottom: 5px;">1953 - 1964</p>
+                    <p>La Saeta Rubia. Arquitecto de las primeras 5 Copas de Europa consecutivas.</p>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a?q=80&w=600&auto=format&fit=crop" alt="Raúl González">
+                </div>
+                <div class="box-content">
+                    <h4 style="color: #D4AF37; font-size: 1.2rem;">Raúl González</h4>
+                    <p style="color: #cbd5e1; font-weight: bold; margin-bottom: 5px;">1994 - 2010</p>
+                    <p>El Gran Capitán. Histórico jugador con más partidos disputados en el club.</p>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=600&auto=format&fit=crop" alt="Cristiano Ronaldo">
+                </div>
+                <div class="box-content">
+                    <h4 style="color: #D4AF37; font-size: 1.2rem;">Cristiano Ronaldo</h4>
+                    <p style="color: #cbd5e1; font-weight: bold; margin-bottom: 5px;">2009 - 2018</p>
+                    <p>CR7. Máximo goleador histórico del Real Madrid con 450 goles oficiales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Ampliado con 5 Preguntas -->
+    <section id="quiz">
+        <h2 class="title">Evaluación Interactiva</h2>
+        <div class="quiz-box">
+            <div id="quiz-content">
+                <div class="quiz-header">
+                    <span id="q-counter">Pregunta 1 de 5</span>
+                    <span id="q-score">Puntaje: 0</span>
+                </div>
+                
+                <p id="q-text" style="font-weight: bold; margin-bottom: 15px; font-size: 1.1rem; color: #fff;">Cargando pregunta...</p>
+                
+                <div id="q-options">
+                    <!-- Opciones dinámicas -->
+                </div>
+
+                <p id="q-feedback" style="margin-top: 15px; font-weight: bold; text-align: center; font-size: 0.95rem;"></p>
+                
+                <div style="text-align: right;">
+                    <button id="next-btn" class="btn-next" onclick="nextQuestion()">Siguiente Pregunta <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Pantalla Final de Calificación -->
+            <div id="quiz-result" style="display: none; text-align: center; padding: 20px 0;">
+                <div style="font-size: 3rem; margin-bottom: 10px;">🏆</div>
+                <h3 style="color: #fff; font-size: 1.8rem; margin-bottom: 10px;">¡Cuestionario Completado!</h3>
+                <p id="final-stats" style="color: #cbd5e1; font-size: 1.1rem; margin-bottom: 15px;"></p>
+                <div id="final-grade" style="display: inline-block; padding: 10px 25px; border-radius: 8px; background: #0c2340; border: 2px solid #D4AF37; color: #D4AF37; font-size: 1.4rem; font-weight: bold; margin-bottom: 20px;">
+                    Nota: 10 / 10
+                </div>
+                <br>
+                <button onclick="restartQuiz()" class="btn-nav" style="border: none; cursor: pointer; padding: 10px 20px;">Reintentar Evaluación</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Proyecto Escolar: Historia del Real Madrid C.F.</p>
+        <p style="margin-top: 4px;">Aidan Buenaño — 10° EGB — OVP — Prof. Andrés Galarza</p>
+    </footer>
+
+    <!-- Lógica del Cuestionario de 5 Preguntas -->
+    <script>
+        const questions = [
+            {
+                question: "1. ¿En qué año se fundó oficialmente el Real Madrid C.F.?",
+                options: ["1899", "1902", "1920", "1947"],
+                correct: 1,
+                explanation: "¡Correcto! Se fundó el 6 de marzo de 1902."
+            },
+            {
+                question: "2. ¿Cuántas UEFA Champions League tiene el Real Madrid en su palmarés?",
+                options: ["10", "12", "14", "15"],
+                correct: 3,
+                explanation: "¡Correcto! Tras ganar la final en Wembley en 2024, alcanzaron las 15 Champions."
+            },
+            {
+                question: "3. ¿Quién es el máximo goleador histórico del club con 450 goles?",
+                options: ["Alfredo Di Stéfano", "Raúl González", "Cristiano Ronaldo", "Karim Benzema"],
+                correct: 2,
+                explanation: "¡Correcto! Cristiano Ronaldo anotó 450 goles en solo 438 partidos."
+            },
+            {
+                question: "4. ¿Qué jugador lideró al equipo en la conquista de las primeras 5 Copas de Europa seguidas?",
+                options: ["Paco Gento", "Alfredo Di Stéfano", "Zinedine Zidane", "Luka Modrić"],
+                correct: 1,
+                explanation: "¡Correcto! Alfredo Di Stéfano fue la gran figura de los años 50."
+            },
+            {
+                question: "5. ¿Cómo se llama el histórico estadio del Real Madrid?",
+                options: ["Santiago Bernabéu", "Camp Nou", "Metropolitano", "San Siro"],
+                correct: 0,
+                explanation: "¡Correcto! El Estadio Santiago Bernabéu fue inaugurado en 1947 y modernizado recientemente."
+            }
+        ];
+
+        let currentQ = 0;
+        let score = 0;
+        let answered = false;
+
+        function loadQ() {
+            answered = false;
+            const q = questions[currentQ];
+            document.getElementById('q-counter').innerText = `Pregunta ${currentQ + 1} de ${questions.length}`;
+            document.getElementById('q-score').innerText = `Puntaje: ${score}`;
+            document.getElementById('q-text').innerText = q.question;
+            document.getElementById('q-feedback').innerText = "";
+            document.getElementById('next-btn').style.display = "none";
+
+            const optContainer = document.getElementById('q-options');
+            optContainer.innerHTML = "";
+
+            q.options.forEach((opt, index) => {
+                const btn = document.createElement('button');
+                btn.className = 'quiz-opt';
+                btn.innerText = `${String.fromCharCode(65 + index)}) ${opt}`;
+                btn.onclick = () => selectOption(index, btn);
+                optContainer.appendChild(btn);
+            });
+        }
+
+        function selectOption(selectedIndex, btnElem) {
+            if (answered) return;
+            answered = true;
+
+            const q = questions[currentQ];
+            const feedback = document.getElementById('q-feedback');
+            const allOpts = document.querySelectorAll('.quiz-opt');
+
+            if (selectedIndex === q.correct) {
+                score++;
+                btnElem.style.borderColor = '#10b981';
+                btnElem.style.backgroundColor = 'rgba(16, 185, 129, 0.2)';
+                feedback.style.color = '#34d399';
+                feedback.innerText = q.explanation;
+            } else {
+                btnElem.style.borderColor = '#ef4444';
+                btnElem.style.backgroundColor = 'rgba(239, 68, 68, 0.2)';
+                allOpts[q.correct].style.borderColor = '#10b981';
+                allOpts[q.correct].style.backgroundColor = 'rgba(16, 185, 129, 0.1)';
+                feedback.style.color = '#f87171';
+                feedback.innerText = `Incorrecto. La respuesta correcta era: ${q.options[q.correct]}`;
+            }
+
+            document.getElementById('q-score').innerText = `Puntaje: ${score}`;
+            document.getElementById('next-btn').style.display = "inline-block";
+        }
+
+        function nextQuestion() {
+            currentQ++;
+            if (currentQ < questions.length) {
+                loadQ();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            document.getElementById('quiz-content').style.display = 'none';
+            document.getElementById('quiz-result').style.display = 'block';
+
+            document.getElementById('final-stats').innerText = `Respondiste correctamente ${score} de ${questions.length} preguntas.`;
+            const finalGrade = (score / questions.length) * 10;
+            document.getElementById('final-grade').innerText = `Nota Evaluativa: ${finalGrade} / 10`;
+        }
+
+        function restartQuiz() {
+            currentQ = 0;
+            score = 0;
+            document.getElementById('quiz-result').style.display = 'none';
+            document.getElementById('quiz-content').style.display = 'block';
+            loadQ();
+        }
+
+        // Cargar primera pregunta al iniciar
+        loadQ();
+    </script>
+</body>
+</html>
